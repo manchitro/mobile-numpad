@@ -39,7 +39,7 @@ export default function Numpad() {
 
   return (
     <div style={{
-      fontFamily: 'sans-serif', margin: 10, padding: 0, background: '#f9f9f9', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+      fontFamily: 'sans-serif', margin: 10, padding: 0, background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
     }}>
       <h2 style={{ marginBottom: 10 }}>Mobile Numpad</h2>
       <div className="numpad" style={{

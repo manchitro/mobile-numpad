@@ -17,11 +17,13 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container" style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <h1>Use Your Phone as a Numpad</h1>
       <p>Scan this QR code with your phone to open the numpad:</p>
       {sessionUrl && (
-        <QRCodeSVG value={sessionUrl} size={256} />
+        <div style={{ background: '#fff', borderRadius: 16, padding: 20, boxShadow: '0 2px 12px #0001', border: '1px solid #eee', display: 'inline-block' }}>
+          <QRCodeSVG value={sessionUrl} size={256} />
+        </div>
       )}
       <p style={{ marginTop: '1rem' }}>
         Session ID: <code>{sessionId}</code>

@@ -38,28 +38,21 @@ export default function Numpad() {
   }
 
   return (
-    <div style={{
-      fontFamily: 'sans-serif', margin: 10, padding: 0, background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
-    }}>
-      <h2 style={{ marginBottom: 10 }}>Mobile Numpad</h2>
-      <div className="numpad" style={{
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, width: '100%', maxWidth: 400, gridAutoFlow: 'dense'
-      }}>
+    <div className="numpad-root">
+      <h2 className="numpad-title">Mobile Numpad</h2>
+      <div className="numpad">
         {KEYS.map(({ label, key, className }) => (
           <button
             key={key + label}
             data-key={key}
             className={className}
-            style={{
-              fontSize: 24, padding: 15, border: 'none', borderRadius: 8, background: '#333', color: 'white', boxShadow: '2px 2px 5px rgba(0,0,0,0.2)', cursor: 'pointer', gridColumn: className === 'span-2-cols' ? 'span 2' : undefined, gridRow: className === 'span-2-rows' ? 'span 2' : undefined
-            }}
             onClick={() => handleKeyClick(key)}
           >
             {label}
           </button>
         ))}
       </div>
-      <div id="status" style={{ marginTop: 15, fontSize: 14, color: '#666' }}>{status}</div>
+      <div id="status">{status}</div>
     </div>
   )
 }

@@ -17,18 +17,18 @@ function App() {
   }, [])
 
   return (
-    <div className="container" style={{ background: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="container">
       <h1>Use Your Phone as a Numpad</h1>
       <p>Scan this QR code with your phone to open the numpad:</p>
       {sessionUrl && (
-        <div style={{ background: '#fff', borderRadius: 16, padding: 20, boxShadow: '0 2px 12px #0001', border: '1px solid #eee', display: 'inline-block' }}>
+        <div className="qr-wrapper">
           <QRCodeSVG value={sessionUrl} size={256} />
         </div>
       )}
-      <p style={{ marginTop: '1rem' }}>
+      <p className="session-id">
         Session ID: <code>{sessionId}</code>
       </p>
-      <p style={{ color: '#888', fontSize: '0.9rem' }}>
+      <p className="instructions">
         Keep this page open on your desktop. Use your phone to scan the QR code and control the numpad remotely.
       </p>
     </div>

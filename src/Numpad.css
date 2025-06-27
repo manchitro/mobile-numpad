@@ -1,3 +1,63 @@
+/* Numpad.css */
+.numpad-root {
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	min-height: 100vh;
+	min-width: 100vw;
+	width: 100vw;
+	color: #222;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.numpad-title {
+	margin-bottom: 10px;
+	color: #222;
+}
+
+.numpad {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 100px); /* Add this line */
+	gap: 10px;
+	width: 100%;
+	max-width: 400px;
+	grid-auto-flow: dense;
+}
+
+.numpad button {
+	font-size: 24px;
+	padding: 15px;
+	border: none;
+	border-radius: 8px;
+	background-color: #333;
+	color: white;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.numpad button:active {
+	background-color: #555;
+}
+
+.span-2-cols {
+	grid-column: span 2;
+}
+
+.span-2-rows {
+	grid-row: span 2;
+}
+
+#status {
+	margin-top: 15px;
+	font-size: 14px;
+	color: #666;
+}
+
 .numpad-container {
 	max-width: 400px;
 	margin: 0 auto;

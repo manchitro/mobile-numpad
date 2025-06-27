@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 import './App.css'
 
+function generateSessionId() {
+  return Math.random().toString(36).substr(2, 10)
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [sessionId, setSessionId] = useState('')
+  const [sessionUrl, setSessionUrl] = useState('')
+
+  useEffect(() => {
+    const id = generateSessionId()
+    setSessionId(id)
+    setSessionUrl(`${window.location.origin}/numpad?session=${id}`)
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div className="container">
+      <h1>Use Your Phone as a Numpad</h1>
+      <p>Scan this QR code with your phone to open the numpad:</p>
+      {sessionUrl && (
+        <QRCodeSVG value={sessionUrl} size={256} />
+      )}
+      <p style={{ marginTop: '1rem' }}>
+        Session ID: <code>{sessionId}</code>
       </p>
-    </>
+      <p style={{ color: '#888', fontSize: '0.9rem' }}>
+        Keep this page open on your desktop. Use your phone to scan the QR code and control the numpad remotely.
+      </p>
+    </div>
   )
 }
 
